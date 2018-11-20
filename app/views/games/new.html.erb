@@ -1,0 +1,14 @@
+<h1>YOUR GRID</h1>
+<% @my_grid.each do |letter| %>
+<%= letter %>
+<% end %>
+
+<% my_grid_string = @my_grid.join %>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="my_word">
+  <input type="submit" value="Play">
+  <input name="my_grid" type="hidden" value=<%= my_grid_string %>/>
+</form>
+
